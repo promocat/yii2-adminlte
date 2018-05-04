@@ -1,11 +1,11 @@
 <?php
 /**
  * @copyright Copyright (c) 2015 Factor Energia
- * @license https://github.com/factorenergia/yii2-adminlte/blob/master/LICENSE
+ * @license https://github.com/promocat/yii2-adminlte/blob/master/LICENSE
  * @link http://adminlte.yiister.ru
  */
 
-namespace factorenergia\adminlte\widgets;
+namespace promocat\adminlte\widgets;
 
 use Yii;
 use rmrevin\yii\fontawesome\component\Icon;
@@ -14,7 +14,7 @@ use yii\helpers\Html;
 
 /**
  * Class Menu
- * @package factorenergia\adminlte\widgets
+ * @package promocat\adminlte\widgets
  */
 class Menu extends \yii\widgets\Menu
 {

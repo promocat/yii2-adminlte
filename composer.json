@@ -1,5 +1,5 @@
 {
-  "name": "factorenergia/yii2-adminlte",
+  "name": "promocat/yii2-adminlte",
   "description": "yii2-adminlte is a package for yii framework 2 that consists a very popular admin template AdminLTE (based on bootstrap 3).",
   "keywords": [
     "yii2",
@@ -10,7 +10,7 @@
     "AdminLTE",
     "bootstrap 3"
   ],
-  "homepage": "https://github.com/factorenergia/yii2-adminlte",
+  "homepage": "https://github.com/promocat/yii2-adminlte",
   "type": "yii2-extension",
   "license": "MIT",
   "authors": [
@@ -22,13 +22,13 @@
     },
     {
       "name": "Factor Energia",
-      "email": "jsalgado@factorenergia.com",
+      "email": "jsalgado@promocat.com",
       "role": "Developer"
     }
   ],
   "support": {
-    "issues": "https://github.com/factorenergia/yii2-adminlte/issues",
-    "source": "https://github.com/factorenergia/yii2-adminlte"
+    "issues": "https://github.com/promocat/yii2-adminlte/issues",
+    "source": "https://github.com/promocat/yii2-adminlte"
   },
   "require": {
     "php": ">=5.4.0",
@@ -39,7 +39,7 @@
   },
   "autoload": {
     "psr-4": {
-      "factorenergia\\adminlte\\": ""
+      "promocat\\adminlte\\": ""
     }
   }
 }

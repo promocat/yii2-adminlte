@@ -1,11 +1,11 @@
 <?php
 /**
  * @copyright Copyright (c) 2015 Factor Energia
- * @license https://github.com/factorenergia/yii2-adminlte/blob/master/LICENSE
+ * @license https://github.com/promocat/yii2-adminlte/blob/master/LICENSE
  * @link http://adminlte.yiister.ru
  */
 
-namespace factorenergia\adminlte\assets;
+namespace promocat\adminlte\assets;
 
 class Asset extends \yii\web\AssetBundle
 {

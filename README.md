@@ -11,13 +11,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-composer require --prefer-dist factorenergia/yii2-adminlte "*"
+composer require --prefer-dist promocat/yii2-adminlte "*"
 ```
 
 or add the following to the `require` section of your `composer.json`
 
 ```json
-"factorenergia/yii2-adminlte": "*"
+"promocat/yii2-adminlte": "*"
 ```
 ## Demonstration
 

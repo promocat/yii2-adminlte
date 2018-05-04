@@ -1,11 +1,11 @@
 <?php
 /**
  * @copyright Copyright (c) 2015 Factor Energia
- * @license https://github.com/factorenergia/yii2-adminlte/blob/master/LICENSE
+ * @license https://github.com/promocat/yii2-adminlte/blob/master/LICENSE
  * @link http://adminlte.yiister.ru
  */
 
-namespace factorenergia\adminlte\widgets\grid;
+namespace promocat\adminlte\widgets\grid;
 
 use yii\helpers\Html;
 
@@ -14,7 +14,7 @@ class GridView extends \yii\grid\GridView
     /**
      * @inheritdoc
      */
-    public $dataColumnClass = 'factorenergia\adminlte\widgets\grid\DataColumn';
+    public $dataColumnClass = 'promocat\adminlte\widgets\grid\DataColumn';
 
     /**
      * @inheritdoc

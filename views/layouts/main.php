@@ -6,7 +6,7 @@
 
 use yii\helpers\Html;
 
-factorenergia\adminlte\assets\Asset::register($this);
+promocat\adminlte\assets\Asset::register($this);
 
 ?>
 <?php $this->beginPage() ?>
@@ -250,7 +250,7 @@ desired effect
 
             <!-- Sidebar Menu -->
             <?=
-            \factorenergia\adminlte\widgets\Menu::widget(
+            \promocat\adminlte\widgets\Menu::widget(
                 [
                     'options' => [
                         'data' => [
@@ -289,7 +289,7 @@ desired effect
                                     "icon" => "table",
                                     "badge" => "123",
                                     "badgeOptions" => [
-                                        "class" => \factorenergia\adminlte\components\AdminLTE::BG_BLUE,
+                                        "class" => \promocat\adminlte\components\AdminLTE::BG_BLUE,
                                     ],
                                 ],
                             ],
