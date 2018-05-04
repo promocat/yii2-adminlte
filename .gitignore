@@ -1,1 +1,7 @@
-.idea
+/.idea
+/nbproject
+/vendor
+/composer.phar
+
+Thumbs.db
+.DS_Store
