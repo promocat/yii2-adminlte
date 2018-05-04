@@ -24,6 +24,11 @@
       "name": "Factor Energia",
       "email": "jsalgado@promocat.com",
       "role": "Developer"
+    },
+    {
+      "name": "PromoCat",
+      "email": "development@promocat.com",
+      "role": "Developer"
     }
   ],
   "support": {
@@ -35,7 +40,7 @@
     "yiisoft/yii2": ">=2.0.5",
     "yiisoft/yii2-bootstrap": "*",
     "rmrevin/yii2-fontawesome": "2.*",
-    "almasaeed2010/adminlte": "*"
+    "almasaeed2010/adminlte": "2.*"
   },
   "autoload": {
     "psr-4": {
