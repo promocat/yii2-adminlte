@@ -29,6 +29,12 @@ class Box extends Widget
      */
     public $header;
 
+
+    /**
+     * @var bool Add a border to the header
+     */
+    public $headerWithBorder = true;
+
     /**
      * @var string header text
      */
@@ -103,7 +109,12 @@ class Box extends Widget
         }
         echo Html::beginTag('div', $this->options);
         if (isset($this->header)) {
-            echo Html::beginTag('div', ['class' => 'box-header']);
+            $classes = ['box-header'];
+            if ($this->headerWithBorder) {
+                $classes[] = 'with-border';
+            }
+
+            echo Html::beginTag('div', ['class' => join(' ',$classes)]);
             echo Html::tag(
                 'h3',
                 (isset($this->icon) ? new Icon($this->icon) . '&nbsp;' : '') . $this->header,
