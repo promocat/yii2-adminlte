@@ -41,7 +41,7 @@ class Menu extends \yii\widgets\Menu
     /**
      * @inheritdoc
      */
-    public $activeCssClass = 'menu-open';
+    public $activeCssClass = 'active';
 
     /**
      * @var bool whether to add menu searching or not (Searching in the menu elements).
