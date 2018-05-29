@@ -34,7 +34,7 @@ class GridView extends \yii\grid\GridView
     /**
      * @var bool is striped
      */
-    public $striped = false;
+    public $striped = true;
 
     /**
      * @var bool is row have hover effect
