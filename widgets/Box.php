@@ -24,6 +24,12 @@ class Box extends Widget
      */
     protected $tools;
 
+
+    /**
+     * @var array html options for the box-body
+     */
+    public $bodyOptions = [];
+
     /**
      * @var string header text
      */
@@ -125,7 +131,10 @@ class Box extends Widget
             }
             echo Html::endTag('div');
         }
-        echo Html::beginTag('div', ['class' => 'box-body']);
+
+        Html::addCssClass($this->bodyOptions, 'box-body');
+
+        echo Html::beginTag('div', $this->bodyOptions);
     }
 
     /**
