@@ -7,7 +7,7 @@
 
 namespace promocat\adminlte\widgets;
 
-use rmrevin\yii\fontawesome\FA;
+use rmrevin\yii\fontawesome\FAS;
 use yii\bootstrap\Widget;
 use yii\helpers\Html;
 
@@ -81,7 +81,7 @@ class Box extends Widget
     {
         if ($this->expandable || $this->collapsable) {
             $this->tools .= Html::button(
-                FA::icon($this->expandable ? 'plus' : 'minus'),
+                FAS::icon($this->expandable ? 'plus' : 'minus'),
                 [
                     'class' => 'btn btn-box-tool',
                     'data-widget' => 'collapse',
@@ -93,7 +93,7 @@ class Box extends Widget
         }
         if ($this->removable) {
             $this->tools .= Html::button(
-                FA::icon('times'),
+                FAS::icon('times'),
                 [
                     'class' => 'btn btn-box-tool',
                     'data-widget' => 'remove',
@@ -123,7 +123,7 @@ class Box extends Widget
             echo Html::beginTag('div', ['class' => join(' ',$classes)]);
             echo Html::tag(
                 'h3',
-                (isset($this->icon) ? FA::icon($this->icon) . '&nbsp;' : '') . $this->header,
+                (isset($this->icon) ? FAS::icon($this->icon) . '&nbsp;' : '') . $this->header,
                 ['class' => 'box-title']
             );
             if (!empty($this->tools)) {

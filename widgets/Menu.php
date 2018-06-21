@@ -7,7 +7,7 @@
 
 namespace promocat\adminlte\widgets;
 
-use rmrevin\yii\fontawesome\FA;
+use rmrevin\yii\fontawesome\FAS;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -63,7 +63,7 @@ class Menu extends \yii\widgets\Menu
                             'placeholder' => 'Buscar elemento del menú...',
                             'class' => 'form-control sideSearch'
                         ]) .
-                        Html::tag('span', FA::icon('search'),
+                        Html::tag('span', FAS::icon('search'),
                             ['class' => 'form-control-feedback kv-feedback-default']), [
                             'class' => 'has-feedback'
                         ]), [
@@ -93,7 +93,7 @@ class Menu extends \yii\widgets\Menu
             $renderedItem,
             [
                 '{icon}' => isset($item['icon'])
-                    ? FA::icon($item['icon'], ArrayHelper::getValue($item, 'iconOptions', []))
+                    ? FAS::icon($item['icon'], ArrayHelper::getValue($item, 'iconOptions', []))
                     : '',
                 '{badge}' => (
                     isset($item['badge'])
@@ -101,7 +101,7 @@ class Menu extends \yii\widgets\Menu
                         : ''
                     ) . (
                     isset($item['items']) && count($item['items']) > 0
-                        ? FA::icon('chevron-left', ['class' => 'pull-right'])
+                        ? FAS::icon('chevron-left', ['class' => 'pull-right'])
                         : ''
                     ),
             ]
