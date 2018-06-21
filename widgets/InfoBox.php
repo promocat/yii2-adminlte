@@ -7,7 +7,7 @@
 
 namespace promocat\adminlte\widgets;
 
-use rmrevin\yii\fontawesome\FAS;
+use rmrevin\yii\fontawesome\component\Icon;
 use yii\bootstrap\Widget;
 use yii\helpers\Html;
 
@@ -76,7 +76,7 @@ class InfoBox extends Widget
         if (!empty($this->icon)) {
             echo Html::tag(
                 'span',
-                FAS::icon($this->icon),
+                new Icon($this->icon),
                 [
                     'class' => 'info-box-icon ' . (!$this->filled && !empty($this->color) ? $this->color : ''),
                 ]
