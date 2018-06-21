@@ -7,7 +7,7 @@
 
 namespace promocat\adminlte\widgets;
 
-use rmrevin\yii\fontawesome\component\Icon;
+use rmrevin\yii\fontawesome\FA;
 use Yii;
 use yii\base\Widget;
 use yii\bootstrap\Alert;
@@ -66,7 +66,7 @@ class FlashAlert extends Widget
                 if ($this->showHeader) {
                     $header = Html::tag(
                         'h4',
-                        (isset($alert['icon']) ? new Icon($alert['icon']) . '&nbsp;' : '') . $alert['header']
+                        (isset($alert['icon']) ? FA::icon($alert['icon']) . '&nbsp;' : '') . $alert['header']
                     );
                 }
                 echo Alert::widget(
