@@ -7,7 +7,7 @@
 
 namespace promocat\adminlte\widgets;
 
-use rmrevin\yii\fontawesome\FAS;
+use rmrevin\yii\fontawesome\component\Icon;
 use yii\bootstrap\Widget;
 use yii\helpers\Html;
 
@@ -67,7 +67,7 @@ class SmallBox extends Widget
             ['class' => 'inner']
         );
         if (!empty($this->icon)) {
-            echo Html::tag('div', FAS::icon($this->icon), ['class' => 'icon']);
+            echo Html::tag('div', new Icon($this->icon), ['class' => 'icon']);
         }
         if (!empty($this->linkLabel)) {
             echo Html::a($this->linkLabel, $this->linkRoute, ['class' => 'small-box-footer']);
