@@ -125,6 +125,8 @@ class TopMenu extends \yii\widgets\Menu
             $items[$i]['label'] = $encodeLabel ? Html::encode($item['label']) : $item['label'];
             $hasActiveChild = false;
             if (isset($item['items'])) {
+                $items[$i]['options']['data-toggle'] = 'dropdown';
+
                 if (isset($items[$i]['options']['class'])) {
                     $items[$i]['options']['class'] .= ' dropdown';
                 } else {
