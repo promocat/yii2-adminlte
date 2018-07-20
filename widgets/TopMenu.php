@@ -16,7 +16,7 @@ use yii\helpers\Html;
  * Class Menu
  * @package promocat\adminlte\widgets
  */
-class Menu extends \yii\widgets\Menu
+class TopMenu extends \yii\widgets\Menu
 {
     /**
      * @inheritdoc
@@ -31,7 +31,7 @@ class Menu extends \yii\widgets\Menu
     /**
      * @inheritdoc
      */
-    public $submenuTemplate = "\n<ul class=\"treeview-menu\">\n{items}\n</ul>\n";
+    public $submenuTemplate = "\n<ul class=\"dropdown-menu\">\n{items}\n</ul>\n";
 
     /**
      * @inheritdoc
@@ -72,7 +72,7 @@ class Menu extends \yii\widgets\Menu
                     ['class' => 'menu-separator', 'style' => 'display: block; border-bottom: solid 1px #D2D6DE;']);
         }
 
-        Html::addCssClass($this->options, 'sidebar-menu');
+        Html::addCssClass($this->options, 'nav navbar-nav');
         $this->options['data']['widget'] = 'tree';
         parent::init();
     }
