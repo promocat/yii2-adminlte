@@ -26,7 +26,7 @@ class Menu extends \yii\widgets\Menu
     /**
      * @inheritdoc
      */
-    public $linkTemplate = '<a href="{url}">{icon}<span>{label}</span>{badge}</a>';
+    public $linkTemplate = '<a href="{url}"><span>{label}</span>{badge}</a>';
 
     /**
      * @inheritdoc
