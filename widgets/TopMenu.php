@@ -7,8 +7,8 @@
 
 namespace promocat\adminlte\widgets;
 
-use Yii;
 use rmrevin\yii\fontawesome\component\Icon;
+use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
@@ -16,8 +16,7 @@ use yii\helpers\Html;
  * Class Menu
  * @package promocat\adminlte\widgets
  */
-class TopMenu extends \yii\widgets\Menu
-{
+class TopMenu extends \yii\widgets\Menu {
     /**
      * @inheritdoc
      */
@@ -26,7 +25,9 @@ class TopMenu extends \yii\widgets\Menu
     /**
      * @inheritdoc
      */
-    public $linkTemplate = '<a href="{url}">{icon}<span>{label}</span>{badge}</a>';
+    public $linkTemplate = '<a href="{url}"> <span>{label}</span>{badge}</a>';
+
+    public $dropdownLinkTemplate = '<a href="{url}" class="dropdown-toggle" data-toggle="dropdown"> <span>{label}</span>{badge} <span class="caret"></span></a>';
 
     /**
      * @inheritdoc
@@ -44,34 +45,11 @@ class TopMenu extends \yii\widgets\Menu
     public $activeCssClass = 'active';
 
     /**
-     * @var bool whether to add menu searching or not (Searching in the menu elements).
-     */
-    public $menuSearching = false;
-
-    /**
      * @inheritdoc
      */
 
 
-    public function init()
-    {
-
-        if ($this->menuSearching) {
-            echo Html::tag('div',
-                    Html::tag('div',
-                        Html::textInput('sideSearch', '', [
-                            'placeholder' => 'Search...',
-                            'class' => 'form-control sideSearch'
-                        ]) .
-                        Html::tag('span', new  Icon('search'),
-                            ['class' => 'form-control-feedback kv-feedback-default']), [
-                            'class' => 'has-feedback'
-                        ]), [
-                        'class' => 'sidebar-form'
-                    ]) . Html::tag('span', '',
-                    ['class' => 'menu-separator', 'style' => 'display: block; border-bottom: solid 1px #D2D6DE;']);
-        }
-
+    public function init() {
         Html::addCssClass($this->options, 'nav navbar-nav');
         $this->options['data']['widget'] = 'tree';
         parent::init();
@@ -80,8 +58,12 @@ class TopMenu extends \yii\widgets\Menu
     /**
      * @inheritdoc
      */
-    protected function renderItem($item)
-    {
+    protected function renderItem($item) {
+
+        if (isset($item['items'])) {
+            $item['template'] = $this->dropdownLinkTemplate;
+        }
+
         $renderedItem = parent::renderItem($item);
         if (isset($item['badge'])) {
             $badgeOptions = ArrayHelper::getValue($item, 'badgeOptions', []);
@@ -89,6 +71,7 @@ class TopMenu extends \yii\widgets\Menu
         } else {
             $badgeOptions = null;
         }
+
         return strtr(
             $renderedItem,
             [
@@ -96,14 +79,10 @@ class TopMenu extends \yii\widgets\Menu
                     ? new Icon($item['icon'], ArrayHelper::getValue($item, 'iconOptions', []))
                     : '',
                 '{badge}' => (
-                    isset($item['badge'])
-                        ? Html::tag('small', $item['badge'], $badgeOptions)
-                        : ''
-                    ) . (
-                    isset($item['items']) && count($item['items']) > 0
-                        ? Html::tag('span','',['class' => 'caret'])
-                        : ''
-                    ),
+                isset($item['badge'])
+                    ? Html::tag('small', $item['badge'], $badgeOptions)
+                    : ''
+                ),
             ]
         );
     }
@@ -111,8 +90,7 @@ class TopMenu extends \yii\widgets\Menu
     /**
      * @inheritdoc
      */
-    protected function normalizeItems($items, &$active)
-    {
+    protected function normalizeItems($items, &$active) {
         foreach ($items as $i => $item) {
             if (isset($item['visible']) && !$item['visible']) {
                 unset($items[$i]);
@@ -125,8 +103,6 @@ class TopMenu extends \yii\widgets\Menu
             $items[$i]['label'] = $encodeLabel ? Html::encode($item['label']) : $item['label'];
             $hasActiveChild = false;
             if (isset($item['items'])) {
-                $items[$i]['options']['data-toggle'] = 'dropdown';
-
                 if (isset($items[$i]['options']['class'])) {
                     $items[$i]['options']['class'] .= ' dropdown';
                 } else {
@@ -169,8 +145,7 @@ class TopMenu extends \yii\widgets\Menu
     /**
      * @inheritdoc
      */
-    protected function isItemActive($item)
-    {
+    protected function isItemActive($item) {
         if (isset($item['url']) && is_array($item['url']) && isset($item['url'][0])) {
             $route = Yii::getAlias($item['url'][0]);
             if ($route[0] !== '/' && Yii::$app->controller) {
