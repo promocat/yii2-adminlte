@@ -101,7 +101,7 @@ class TopMenu extends \yii\widgets\Menu
                         : ''
                     ) . (
                     isset($item['items']) && count($item['items']) > 0
-                        ? new Icon('chevron-left', ['class' => 'pull-right'])
+                        ? Html::tag('span','',['class' => 'caret'])
                         : ''
                     ),
             ]
@@ -126,9 +126,9 @@ class TopMenu extends \yii\widgets\Menu
             $hasActiveChild = false;
             if (isset($item['items'])) {
                 if (isset($items[$i]['options']['class'])) {
-                    $items[$i]['options']['class'] .= ' treeview';
+                    $items[$i]['options']['class'] .= ' dropdown';
                 } else {
-                    $items[$i]['options']['class'] = 'treeview';
+                    $items[$i]['options']['class'] = 'dropdown';
                 }
                 $items[$i]['items'] = $this->normalizeItems($item['items'], $hasActiveChild);
                 if (empty($items[$i]['items']) && $this->hideEmptyItems) {
