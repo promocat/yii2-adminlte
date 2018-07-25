@@ -1,7 +1,6 @@
 <?php
 /**
  * @license https://github.com/promocat/yii2-adminlte/blob/master/LICENSE
- * @link http://adminlte.yiister.ru
  */
 namespace promocat\adminlte\assets;
 
