@@ -7,7 +7,7 @@
 
 namespace promocat\adminlte\assets;
 
-class Asset extends \yii\web\AssetBundle
+class ThemeAsset extends \yii\web\AssetBundle
 {
     public $sourcePath = '@vendor/almasaeed2010/adminlte/dist';
     public $css = [
