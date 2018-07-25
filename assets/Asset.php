@@ -11,6 +11,6 @@ class Asset extends \yii\web\AssetBundle {
     ];
     public $js = [];
     public $depends = [
-        'promocat\yii2-adminlte\assets\Asset'
+        'promocat\yii2-adminlte\assets\ThemeAsset'
     ];
 }
