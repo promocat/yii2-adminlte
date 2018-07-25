@@ -178,6 +178,7 @@ class Menu extends \yii\widgets\Menu
             if (
                 ($route == '/' && $this->route == 'site/index')
                 || (substr($route, -1) == '/' && $this->route == ltrim($route, '/') . 'index')
+                || ltrim($route, '/') . '/index' == $this->route
                 || ($this->route == ltrim($route, '/'))
             ) {
                 unset($item['url']['#']);
