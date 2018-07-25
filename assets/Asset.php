@@ -11,6 +11,7 @@ class Asset extends \yii\web\AssetBundle
 {
     public $sourcePath = '@vendor/almasaeed2010/adminlte/dist';
     public $css = [
+        '@vendor/promocat/yii2-adminlte/css/theme.css',
         'css/AdminLTE.min.css',
         'css/skins/_all-skins.min.css',
     ];
