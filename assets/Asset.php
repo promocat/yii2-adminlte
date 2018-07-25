@@ -5,7 +5,7 @@
 namespace promocat\adminlte\assets;
 
 class Asset extends \yii\web\AssetBundle {
-    public $sourcePath = '@vendor/promocat/adminlte';
+    public $sourcePath = '@vendor/promocat/yii2-adminlte';
     public $css = [
         'css/theme.css',
     ];
