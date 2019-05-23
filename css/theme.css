@@ -33,6 +33,10 @@
     font-weight:bold;
 }
 
+.img-circle {
+    border-radius: 50%;
+}
+
 @media (min-width: 1600px) {
     .container {
         width: 1570px;
