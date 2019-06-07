@@ -33,8 +33,14 @@
     font-weight:bold;
 }
 
-.img-circle {
-    border-radius: 50%;
+div.user-letter-avatar {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 25px;
+    padding-right: 0px;
 }
 
 .img-responsive, .thumbnail a>img, .thumbnail>img {
