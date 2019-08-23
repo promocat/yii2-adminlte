@@ -7,8 +7,8 @@
 
 namespace promocat\adminlte\widgets;
 
-use Yii;
 use rmrevin\yii\fontawesome\component\Icon;
+use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
@@ -49,12 +49,16 @@ class Menu extends \yii\widgets\Menu
     public $menuSearching = false;
 
     /**
-     * @inheritdoc
+     * @var string The name of the menu. Used for dynamically registering menu items.
      */
-
+    public $name = 'main';
 
     public function init()
     {
+        Yii::beginProfile("Menu - register - event", __CLASS__);
+        $this->trigger(static::getEventName($this->name));
+        Yii::endProfile("Menu - register - event", __CLASS__);
+
 
         if ($this->menuSearching) {
             echo Html::tag('div',
@@ -75,6 +79,19 @@ class Menu extends \yii\widgets\Menu
         Html::addCssClass($this->options, 'sidebar-menu');
         $this->options['data']['widget'] = 'tree';
         parent::init();
+    }
+
+    public static function getEventName($menuName)
+    {
+        return 'menu.' . $menuName . '.register';
+    }
+
+    public function addItem($item)
+    {
+        if (!isset($item['sortOrder'])) {
+            $item['sortOrder'] = 1000;
+        }
+        $this->items[] = $item;
     }
 
     /**
@@ -113,6 +130,7 @@ class Menu extends \yii\widgets\Menu
      */
     protected function normalizeItems($items, &$active)
     {
+        $items = $this->sortItems($items);
         foreach ($items as $i => $item) {
             if (isset($item['visible']) && !$item['visible']) {
                 unset($items[$i]);
@@ -154,14 +172,35 @@ class Menu extends \yii\widgets\Menu
                     $items[$i]['active'] = false;
                 }
             } elseif ($item['active'] instanceof Closure) {
-                $active = $items[$i]['active'] = call_user_func($item['active'], $item, $hasActiveChild,
-                    $this->isItemActive($item), $this);
+                $active = $items[$i]['active'] = $item['active']($item, $hasActiveChild, $this->isItemActive($item),
+                    $this);
             } elseif ($item['active']) {
                 $active = true;
             }
         }
 
         return array_values($items);
+    }
+
+    /**
+     * Sorts the item attribute by sortOrder
+     * @param array $items
+     * @return
+     */
+    private function sortItems($items)
+    {
+        usort($items, function ($a, $b) {
+            if (!isset($a['sortOrder']) || !isset($b['sortOrder']) || $a['sortOrder'] == $b['sortOrder']) {
+                return 0;
+            } else {
+                if ($a['sortOrder'] < $b['sortOrder']) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            }
+        });
+        return $items;
     }
 
     /**
