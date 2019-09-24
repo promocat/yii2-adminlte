@@ -80,7 +80,7 @@
     height: auto;
 }
 
-.table table-align-middle tbody td {
+.table .table-align-middle tbody td {
     vertical-align: middle;
 }
 
