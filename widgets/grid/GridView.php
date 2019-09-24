@@ -20,6 +20,10 @@ class GridView extends \yii\grid\GridView
      * @inheritdoc
      */
     public $tableOptions = ['class' => 'table dataTable'];
+    /**
+     * @var string vertically aligns content in the middle
+     */
+    public $alignMiddle = false;
 
     /**
      * @var bool is bordered
@@ -46,6 +50,9 @@ class GridView extends \yii\grid\GridView
      */
     public function init()
     {
+        if ($this->alignMiddle) {
+            Html::addCssClass($this->tableOptions, 'table-align-middle');
+        }
         if ($this->bordered) {
             Html::addCssClass($this->tableOptions, 'table-bordered');
         }
